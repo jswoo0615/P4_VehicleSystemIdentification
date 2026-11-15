@@ -92,7 +92,7 @@ kN/rad with objective 0.051217. The supplied 234.008/234.008 kN/rad point
 is well outside the low-loss contours. The grid shows a localized minimum
 for the chosen model and data rather than a long, nearly flat valley.
 
-![Model B stiffness loss map](output/model_b_loss_map.png)
+![Model B stiffness loss map](../../output/model_b_loss_map.png)
 
 The finite-difference Hessian of the normalized training objective, using
 `log(Cf)` and `log(Cr)` coordinates and a 0.02 log-unit step at the all-nine
@@ -133,8 +133,8 @@ build/model_b_ioniq5_cv data/IONIQ5_Data/processed/dynamic_driving_asphalt_a_[1-
 PYTHONDONTWRITEBYTECODE=1 python3 -m tools.visualization.plot_model_b_loss --input output/model_b_loss_map.csv --output output/model_b_loss_map.png
 ```
 
-The numeric [loss grid](output/model_b_loss_map.csv) and
-[run log](output/model_b_identifiability.txt) preserve the plotted values and
+The numeric [loss grid](../../output/model_b_loss_map.csv) and
+[run log](../../output/model_b_identifiability.txt) preserve the plotted values and
 fold-level fits. These results support a locally distinguishable *effective
 pair* within this model and asphalt A data. They do not establish that the
 pair equals independently measured tire stiffness: steering compliance, the
@@ -220,12 +220,12 @@ build/model_b_ioniq5_cv data/IONIQ5_Data/processed/dynamic_driving_asphalt_a_[1-
 build/model_a_speed_cv --fit-all data/IONIQ5_Data/processed/dynamic_driving_asphalt_a_[1-9].csv --test data/IONIQ5_Data/processed/dynamic_driving_asphalt_b_1.csv data/IONIQ5_Data/processed/dynamic_driving_cobble_1.csv data/IONIQ5_Data/processed/dynamic_driving_asphalt_a_cobble_1.csv data/IONIQ5_Data/processed/dynmic_asphalt_b_cobble_1.csv > output/model_a_speed_surface_generalization.txt
 ```
 
-The [domain report](output/model_b_operating_domain.csv) records all three
+The [domain report](../../output/model_b_operating_domain.csv) records all three
 signals' ranges, quantiles, and fractions outside asphalt A coverage for
-each file. The [Model B run log](output/model_b_surface_generalization.txt)
-and [A-Speed run log](output/model_a_speed_surface_generalization.txt) retain
+each file. The [Model B run log](../../output/model_b_surface_generalization.txt)
+and [A-Speed run log](../../output/model_a_speed_surface_generalization.txt) retain
 the exact fitted coefficients and errors. The
-[baseline record](config/ioniq5_model_b_asphalt_a_baseline.json) stores the
+[baseline record](../../config/ioniq5_model_b_asphalt_a_baseline.json) stores the
 fixed coefficients, vehicle geometry, coordinate correction, and training
 domain. The asphalt A Model B fit is a fixed **asphalt A baseline**; current
 evidence does not support

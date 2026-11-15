@@ -1,7 +1,7 @@
 # VW Golf A / A-Speed / B0 V1 status
 
 The VW Golf source dataset, citation, and CC BY-SA 4.0 terms are documented
-in [DATASET_ATTRIBUTION.md](DATASET_ATTRIBUTION.md).
+in [DATASET_ATTRIBUTION.md](../../DATASET_ATTRIBUTION.md).
 
 The Golf V1 coefficients in `config/golf_baselines.json` remain frozen. The
 controller export and validation outputs below are separate artifacts, not

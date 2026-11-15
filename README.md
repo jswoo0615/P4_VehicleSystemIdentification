@@ -55,21 +55,22 @@ RMSE, plus a final fit using all unique files. The October bundle contains
 two duplicate pairs; 20 unique CSVs remain. Pooled CV RMSE is 0.09230 rad/s
 for Model A and 0.08708 rad/s for A-Speed.
 
-Golf Model B is documented in `GOLF_MODEL_B.md`, including the normalized
-four-parameter fit, matching file-fold evaluation, and parameter sensitivity.
-The training-only A-Speed assisted B1 comparison is in `GOLF_B0_B1.md`.
+Golf Model B is documented in [docs/golf/GOLF_MODEL_B.md](docs/golf/GOLF_MODEL_B.md),
+including the normalized four-parameter fit, matching file-fold evaluation,
+and parameter sensitivity. The training-only A-Speed assisted B1 comparison
+is in [docs/golf/GOLF_B0_B1.md](docs/golf/GOLF_B0_B1.md).
 The frozen reference coefficients and observed operating domain are in
 `config/golf_baselines.json`; B0 is the retained Golf Model B baseline.
 Run `python3 tools/p4_golf_export.py` to create the separate controller-facing
 `output/golf_controller_model.json` without changing the identification fits.
 The C++17 reload and 1,000-step numerical parity procedure is recorded in
-`P4_EXPORT_PARITY.md`.
+`docs/golf/P4_EXPORT_PARITY.md`.
 The separate controller-facing runtime, measured step timing, and existing-
-data diagnostic predictions are recorded in `P4_CONTROLLER_INTEGRATION.md`.
-`P4_GOLF_V1_STATUS.md` records the frozen artifact hashes, current validation
+data diagnostic predictions are recorded in `docs/golf/P4_CONTROLLER_INTEGRATION.md`.
+`docs/golf/P4_GOLF_V1_STATUS.md` records the frozen artifact hashes, current validation
 scope, and remaining gates. Finite-horizon file-fold prediction is in
-`P4_PREDICTION_HORIZON.md`. The closed-loop harness in
-`P4_CLOSED_LOOP_DEMO.md` has passed a synthetic feasibility check; it is not
+`docs/golf/P4_PREDICTION_HORIZON.md`. The closed-loop harness in
+`docs/golf/P4_CLOSED_LOOP_DEMO.md` has passed a synthetic feasibility check; it is not
 VW Golf real-vehicle control validation.
 
 The Golf A and B experiments share `GolfDataset` for byte-content duplicate
@@ -96,7 +97,7 @@ the later nine-file fit is `tau=0.044887 s`, `kv=0.005000`,
 The `kv` result is inside the `0–0.15` search range, not on a boundary.
 Both coefficient sets and their file lists are recorded in
 `config/ioniq5_baselines.json`. For Model B comparisons, use the same
-file-level CV folds for both models; see `IONIQ5_REFINEMENT.md` for results
+file-level CV folds for both models; see `docs/ioniq5/IONIQ5_REFINEMENT.md` for results
 and limitations.
 
 ## Project map
@@ -104,6 +105,7 @@ and limitations.
 - `data/`: original and converted recordings. Keep intact.
 - `include/`, `src/`: reusable C++17 readers and model simulators.
 - `apps/`: command-line identification and diagnostic programs.
+- `docs/`: vehicle-specific experiment reports and the earlier VBO audit.
 - `tools/datasets/`: KIT IONIQ 5 and VBO conversion and inspection utilities.
 - `tools/validation/`: file-group splits, cross-validation, and parity checks.
 - `tools/visualization/`: model and maneuver plots.
@@ -112,14 +114,16 @@ and limitations.
 - `output/`: generated reports and figures; ignored by Git.
 - `build/`: generated CMake build; ignored by Git.
 
-See `tools/README.md` for the current Python commands and the roles of the
+See [docs/README.md](docs/README.md) for the vehicle-specific experiment
+reports. See `tools/README.md` for the current Python commands and the roles of the
 older one-file and VBO utilities.
 
 The older VBO workflow remains available for comparison and teaching. See
-`AUDIT.md` for its classification and `IONIQ5_CONVERSION.md` for the IONIQ 5
-data conversion record. `IONIQ5_EXPERIMENTS.md` gives the first held-out A0
-and S0 results. `IONIQ5_REFINEMENT.md` gives the A1/S1 comparison and
-reproducible commands. `IONIQ5_MODEL_B.md` gives the Model B frame correction,
+`docs/legacy/AUDIT.md` for its classification and
+`docs/ioniq5/IONIQ5_CONVERSION.md` for the IONIQ 5 data conversion record.
+`docs/ioniq5/IONIQ5_EXPERIMENTS.md` gives the first held-out A0 and S0 results.
+`docs/ioniq5/IONIQ5_REFINEMENT.md` gives the A1/S1 comparison and
+reproducible commands. `docs/ioniq5/IONIQ5_MODEL_B.md` gives the Model B frame correction,
 identification method, and comparison with A-Speed.
 
 ## Verify
