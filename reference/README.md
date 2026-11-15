@@ -17,3 +17,6 @@ cp reference/v1/*.json output/
 `diagnostics/` contains the finite-horizon file CV and synthetic closed-loop
 summary. Its synthetic results are a harness demonstration, not VW Golf
 closed-loop validation. The matching selected plots are in `figures/`.
+For diagnostics based on the Stanford VW Golf recordings, cite the source
+dataset as described in [DATASET_ATTRIBUTION.md](../DATASET_ATTRIBUTION.md);
+the plotted model outputs are P4-derived results.

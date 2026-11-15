@@ -1,7 +1,8 @@
 # Local datasets
 
 Raw vehicle logs are kept outside Git. The source recordings in this
-workspace exceed 1 GB, and their redistribution terms have not been checked.
+workspace exceed 1 GB. See [DATASET_ATTRIBUTION.md](DATASET_ATTRIBUTION.md)
+for the Stanford dataset citation and its verified CC BY-SA 4.0 license.
 The repository contains code, frozen small JSON references, and selected
 diagnostic figures. Do not commit the local `data/` directory.
 

@@ -5,7 +5,19 @@ runtime for the IONIQ 5 and Stanford VW Golf experiments. Raw driving logs
 and generated build/output folders are kept locally. See `DATASETS.md` for
 the expected input layout and `reference/README.md` for the tracked Golf V1
 results. Nine C++ regression tests run without the raw datasets; five
-additional VBO checks run when their original local files are present:
+additional VBO checks run when their original local files are present.
+
+## Dataset acknowledgment
+
+The Stanford VW Golf experiments use Mori et al. (2025), *Vehicle Dynamics
+Dataset for Highly Dynamic Automated Driving*, Version 1, Stanford Digital
+Repository ([DOI](https://doi.org/10.25740/hh613qz0317)). The dataset record
+specifies [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+See [DATASET_ATTRIBUTION.md](DATASET_ATTRIBUTION.md) for the full citation,
+source link, processing summary, and usage conditions. Original driving CSVs
+are not included in this repository.
+
+## Build and test
 
 ```sh
 cmake -S . -B build-release -DCMAKE_BUILD_TYPE=Release
