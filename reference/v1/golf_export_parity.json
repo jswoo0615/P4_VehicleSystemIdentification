@@ -1,0 +1,9 @@
+{
+  "experiment": "P4-EXPORT-PARITY-001",
+  "status": "passed",
+  "steps": 1000,
+  "max_parameter_relative_error": 0,
+  "first_step_max_absolute_error": 0,
+  "all_steps_max_absolute_error": 0,
+  "negative_loader_cases": ["missing_schema", "wrong_schema", "missing_parameter", "NaN", "Infinity", "number_overflow", "parameter_mismatch"]
+}

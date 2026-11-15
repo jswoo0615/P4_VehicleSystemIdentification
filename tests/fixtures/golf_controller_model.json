@@ -1,0 +1,30 @@
+{
+  "schema": "p4.controller_model.v1",
+  "models": {
+    "A": {
+      "parameters": {
+        "K_r_per_s": 3.720892737136853,
+        "tau_r_s": 0.12650895102857465,
+        "b_radps": -0.002017215946416358
+      }
+    },
+    "A-Speed": {
+      "parameters": {
+        "L_m": 2.63,
+        "k_v_s2_per_m": 0.005,
+        "tau_r_s": 0.14194537768844415,
+        "b_radps": -0.009035082107056886
+      }
+    },
+    "B0": {
+      "bank_lateral_acceleration": "+9.80665*sin(bank)",
+      "parameters": {
+        "Cf_over_m_mps2_per_rad": 48.37692797945161,
+        "Cr_over_m_mps2_per_rad": 51.01006700133779,
+        "Iz_over_m_m2": 2.530180722165194,
+        "lf_m": 1.0,
+        "lr_m": 1.63
+      }
+    }
+  }
+}

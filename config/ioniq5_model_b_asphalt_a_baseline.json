@@ -1,0 +1,33 @@
+{
+  "status": "Frozen asphalt-A baseline; effective linear-model parameters, not a universal-surface calibration",
+  "training_files": "dynamic_driving_asphalt_a_1.csv through dynamic_driving_asphalt_a_9.csv",
+  "mass_kg": 2254.0,
+  "yaw_inertia_kg_m2": 2193.0,
+  "front_axle_m": 1.563,
+  "rear_axle_m": 1.437,
+  "front_cornering_stiffness_N_per_rad": 93941.306281,
+  "rear_cornering_stiffness_N_per_rad": 143718.324315,
+  "reference_front_and_rear_N_per_rad": 234008.0,
+  "coG_velocity_from_correvit": {
+    "vx": "vx_cor + 0.159*yaw_rate",
+    "vy": "vy_cor + 2.395*yaw_rate"
+  },
+  "nine_file_cv_yaw_rmse_rad_per_s": 0.032793,
+  "nine_file_cv_vy_rmse_m_per_s": 0.115194,
+  "all_file_training_yaw_rmse_rad_per_s": 0.032221,
+  "all_file_training_vy_rmse_m_per_s": 0.109673,
+  "fit_objective": "Equal-weight yaw and CoG lateral-velocity squared errors normalized by training-file standard deviations",
+  "operating_domain": {
+    "source": "Scored samples in nine asphalt-A training files; 20 ms segmented reader",
+    "vx_cog_m_per_s_range": [1.9632872328, 15.5556182946],
+    "abs_steering_rad_range": [0.00015, 0.591884550624],
+    "abs_lateral_accel_rear_axle_m_per_s2_range": [0.0000514975265175, 11.2043602435],
+    "detailed_report": "output/model_b_operating_domain.csv",
+    "interpretation": "Per-signal ranges only; joint coverage and accuracy are not guaranteed"
+  },
+  "external_surface_evaluation": {
+    "source": "output/model_b_surface_generalization.txt",
+    "unvalidated_conditions": "Other vehicles, speeds, loads and road surfaces beyond the listed files",
+    "result": "Fitted stiffness beats A-Speed yaw RMSE on four external files; supplied stiffness beats fitted stiffness on both signals in asphalt B, cobble, and asphalt B-cobble files"
+  }
+}

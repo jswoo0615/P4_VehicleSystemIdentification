@@ -1,0 +1,109 @@
+{
+  "experiment": "P4-GOLF-PREDICTION-HORIZON-001",
+  "method": "C++17 ControllerRuntime; original GolfDataset 50 Hz preprocessing; reset from measured Vy and yaw at each origin; use recorded future steering, Vx and bank",
+  "horizons_s": [
+    0.1,
+    0.2,
+    0.5,
+    1.0
+  ],
+  "target_scoring": "Every valid target sample within a segment; overlapping forecasts are pooled by forecast origin, never across a segment boundary",
+  "independent_evaluation": "20 unique held-out files; each model uses its own corresponding fold's training-only coefficients",
+  "reference_free_run_match_max_abs_rmse": 4.996003610813204e-16,
+  "file_cv": [
+    {
+      "samples": 114162,
+      "a_yaw_rmse": 0.05516503163538785,
+      "as_yaw_rmse": 0.04917205663077234,
+      "b_yaw_rmse": 0.04316257750756792,
+      "b_vy_rmse": 0.1303638199416102,
+      "horizon_steps": 5,
+      "horizon_nominal_s": 0.1,
+      "b0_yaw_rmse_change_vs_a_speed_pct": -12.221329622897315,
+      "b0_better_yaw_files": 17,
+      "b0_better_yaw_folds": 5
+    },
+    {
+      "samples": 114047,
+      "a_yaw_rmse": 0.07646497404090048,
+      "as_yaw_rmse": 0.06924676964331714,
+      "b_yaw_rmse": 0.06531080826300958,
+      "b_vy_rmse": 0.2156321188660776,
+      "horizon_steps": 10,
+      "horizon_nominal_s": 0.2,
+      "b0_yaw_rmse_change_vs_a_speed_pct": -5.683963888252519,
+      "b0_better_yaw_files": 16,
+      "b0_better_yaw_folds": 4
+    },
+    {
+      "samples": 113702,
+      "a_yaw_rmse": 0.09117194544393087,
+      "as_yaw_rmse": 0.08525310582161826,
+      "b_yaw_rmse": 0.08791108236074287,
+      "b_vy_rmse": 0.33330293614581297,
+      "horizon_steps": 25,
+      "horizon_nominal_s": 0.5,
+      "b0_yaw_rmse_change_vs_a_speed_pct": 3.1177474574194397,
+      "b0_better_yaw_files": 6,
+      "b0_better_yaw_folds": 0
+    },
+    {
+      "samples": 113127,
+      "a_yaw_rmse": 0.09268586868992162,
+      "as_yaw_rmse": 0.08744943008450101,
+      "b_yaw_rmse": 0.08670183339315028,
+      "b_vy_rmse": 0.34325595169455336,
+      "horizon_steps": 50,
+      "horizon_nominal_s": 1.0,
+      "b0_yaw_rmse_change_vs_a_speed_pct": -0.8548902956009408,
+      "b0_better_yaw_files": 15,
+      "b0_better_yaw_folds": 3
+    }
+  ],
+  "local_diagnostic": {
+    "target_interval_s": [
+      85,
+      88
+    ],
+    "file": "2023-11_1.csv",
+    "coefficients": "full-data refit from config/golf_baselines.json; not independent validation",
+    "results": [
+      {
+        "samples": 150,
+        "a_yaw_rmse": 0.05936967668355519,
+        "as_yaw_rmse": 0.04887956712395889,
+        "b_yaw_rmse": 0.055709035843339506,
+        "b_vy_rmse": 0.10898862480738469,
+        "horizon_steps": 5,
+        "horizon_nominal_s": 0.1
+      },
+      {
+        "samples": 150,
+        "a_yaw_rmse": 0.08236019892738605,
+        "as_yaw_rmse": 0.06767501175000679,
+        "b_yaw_rmse": 0.08814335847127786,
+        "b_vy_rmse": 0.2553904716622061,
+        "horizon_steps": 10,
+        "horizon_nominal_s": 0.2
+      },
+      {
+        "samples": 150,
+        "a_yaw_rmse": 0.09687106761380078,
+        "as_yaw_rmse": 0.08017337598952716,
+        "b_yaw_rmse": 0.11881441461133044,
+        "b_vy_rmse": 0.6675168726012862,
+        "horizon_steps": 25,
+        "horizon_nominal_s": 0.5
+      },
+      {
+        "samples": 150,
+        "a_yaw_rmse": 0.0980628255112659,
+        "as_yaw_rmse": 0.08137703026638644,
+        "b_yaw_rmse": 0.10283610144166984,
+        "b_vy_rmse": 0.816542610960542,
+        "horizon_steps": 50,
+        "horizon_nominal_s": 1.0
+      }
+    ]
+  }
+}

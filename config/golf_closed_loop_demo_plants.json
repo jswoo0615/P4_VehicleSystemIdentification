@@ -1,0 +1,32 @@
+{
+  "purpose": "Synthetic plant sensitivity fixtures only; not identified VW Golf parameters or an independent vehicle validation",
+  "plants": [
+    {
+      "name": "nominal_synthetic",
+      "cf_over_m": 60.0,
+      "cr_over_m": 55.0,
+      "iz_over_m": 2.4,
+      "lf_m": 1.05,
+      "lr_m": 1.58,
+      "slip_saturation_rad": 0.08
+    },
+    {
+      "name": "soft_synthetic",
+      "cf_over_m": 40.0,
+      "cr_over_m": 42.0,
+      "iz_over_m": 2.9,
+      "lf_m": 1.0,
+      "lr_m": 1.63,
+      "slip_saturation_rad": 0.05
+    },
+    {
+      "name": "stiff_synthetic",
+      "cf_over_m": 75.0,
+      "cr_over_m": 70.0,
+      "iz_over_m": 2.0,
+      "lf_m": 1.1,
+      "lr_m": 1.53,
+      "slip_saturation_rad": 0.10
+    }
+  ]
+}

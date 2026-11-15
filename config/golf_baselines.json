@@ -1,0 +1,72 @@
+{
+  "purpose": "Frozen VW Golf A/A-Speed/B0 reference from whole-file five-fold validation; full-data coefficients are effective prediction parameters",
+  "dataset": "data/VehicleDynamicsDataset/{Oct2023,Nov2023}",
+  "vehicle": "VW Golf",
+  "track": "Thunderhill Raceway Park West",
+  "original_csv_count": 22,
+  "unique_csv_count": 20,
+  "excluded_exact_duplicates": {
+    "Oct2023/2023-10_2.csv": "Oct2023/2023-10.csv",
+    "Oct2023/2023-10_3.csv": "Oct2023/2023-10_1.csv"
+  },
+  "validation": {
+    "folds": 5,
+    "group": "entire CSV file",
+    "minimum_speed_m_s": 5.0,
+    "sample_period_s": 0.02,
+    "segment_initialization": "first measured state; first sample excluded from RMSE",
+    "sample_count": 114254,
+    "partition_details": "output/golf_a_kfold_001.json and output/golf_b01_kfold_001.json"
+  },
+  "channel_map": {
+    "time": "t_s",
+    "road_wheel_angle": "roadWheelAngle_rad",
+    "yaw_rate": "yawRate_radps",
+    "longitudinal_speed": "Vx_mps",
+    "lateral_speed": "Vy_mps",
+    "road_bank": "bank_rad"
+  },
+  "model_a": {
+    "equation": "tau*r_dot+r=K*delta+b",
+    "K_per_s": 3.720892737136853,
+    "tau_s": 0.12650895102857465,
+    "bias_rad_per_s": -0.002017215946416358,
+    "pooled_file_cv_yaw_rmse_rad_per_s": 0.09229867384823799
+  },
+  "model_a_speed": {
+    "equation": "tau*r_dot+r=[vx/(L+kv*vx^2)]*delta+b",
+    "nominal_wheelbase_m": 2.63,
+    "kv_s2_per_m": 0.005,
+    "tau_s": 0.14194537768844415,
+    "bias_rad_per_s": -0.009035082107056886,
+    "pooled_file_cv_yaw_rmse_rad_per_s": 0.08707845012806491,
+    "note": "These are the original coarse-grid reference coefficients; the B0/B1 experiment separately refined training-only kv in every fold"
+  },
+  "model_b0": {
+    "equation": "normalized linear 2DOF bicycle with road-bank lateral acceleration",
+    "nominal_wheelbase_m": 2.63,
+    "cf_over_m_mps2_per_rad": 48.37692797945161,
+    "cr_over_m_mps2_per_rad": 51.01006700133779,
+    "iz_over_m_m2": 2.530180722165194,
+    "lf_m": 1.0,
+    "lr_m": 1.63,
+    "lf_search_bounds_m": [0.7, 1.6],
+    "pooled_file_cv_yaw_rmse_rad_per_s": 0.08543257715013772,
+    "pooled_file_cv_lateral_speed_rmse_m_per_s": 0.33105433785380634,
+    "interpretation": "Predictive effective parameters; lf and Iz/m are weakly separated by the available data"
+  },
+  "model_b1_comparison": {
+    "status": "not adopted",
+    "pooled_file_cv_yaw_rmse_rad_per_s": 0.08575926168299333,
+    "pooled_file_cv_lateral_speed_rmse_m_per_s": 0.33119813952917315
+  },
+  "observed_domain_raw_samples_after_speed_filter": {
+    "raw_sample_count": 457375,
+    "speed_mps_p05_p95": [12.535305203912094, 31.888303698473987],
+    "abs_road_wheel_angle_rad_p95": 0.1571303921410839,
+    "abs_yaw_rate_radps_p95": 0.5626941508429719,
+    "abs_lateral_speed_mps_p95": 1.437588900547089,
+    "abs_bank_rad_p95": 0.06271593862922822,
+    "note": "Observed signal distribution, not a guarantee of accuracy at every point in this range"
+  }
+}

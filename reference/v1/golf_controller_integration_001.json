@@ -1,0 +1,11 @@
+{
+  "experiment": "P4-CONTROLLER-INTEGRATION-001",
+  "evaluation_kind": "in_sample_diagnostic_full_data_refit",
+  "controller_model": "output/golf_controller_model.json",
+  "drive_file": "data/VehicleDynamicsDataset/Nov2023/2023-11_1.csv",
+  "interval_s": [75, 100],
+  "scored_samples": 4999, "segment_resets": 1, "skipped_low_speed_rows": 0,
+  "rmse": {"A_yaw_radps": 0.16656202271334761, "A_Speed_yaw_radps": 0.1798299106621282, "B0_yaw_radps": 0.17118795044512355, "B0_vy_mps": 0.29971187897535806},
+  "step_latency_ns": {"p50": 42, "p95": 84, "p99": 84, "max": 917, "over_5ms_count": 0},
+  "step_cpp_new_calls": 0
+}

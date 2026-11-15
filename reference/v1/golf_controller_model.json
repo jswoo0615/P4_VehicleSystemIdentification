@@ -1,0 +1,135 @@
+{
+  "schema": "p4.controller_model.v1",
+  "vehicle": "VW Golf",
+  "models": {
+    "A": {
+      "equation": "tau*r_dot+r=K*delta+b",
+      "inputs": [
+        "steering"
+      ],
+      "outputs": [
+        "yaw_rate"
+      ],
+      "parameters": {
+        "K_r_per_s": 3.720892737136853,
+        "tau_r_s": 0.12650895102857465,
+        "b_radps": -0.002017215946416358
+      }
+    },
+    "A-Speed": {
+      "equation": "tau*r_dot+r=[vx/(L+kv*vx^2)]*delta+b",
+      "inputs": [
+        "steering",
+        "vx"
+      ],
+      "outputs": [
+        "yaw_rate"
+      ],
+      "parameters": {
+        "L_m": 2.63,
+        "k_v_s2_per_m": 0.005,
+        "tau_r_s": 0.14194537768844415,
+        "b_radps": -0.009035082107056886
+      }
+    },
+    "B0": {
+      "equation": "normalized linear 2DOF bicycle with road-bank lateral acceleration",
+      "states": [
+        "vy",
+        "yaw_rate"
+      ],
+      "inputs": [
+        "steering",
+        "vx",
+        "bank"
+      ],
+      "outputs": [
+        "vy",
+        "yaw_rate"
+      ],
+      "bank_lateral_acceleration": "+9.80665*sin(bank)",
+      "parameters": {
+        "Cf_over_m_mps2_per_rad": 48.37692797945161,
+        "Cr_over_m_mps2_per_rad": 51.01006700133779,
+        "Iz_over_m_m2": 2.530180722165194,
+        "lf_m": 1.0,
+        "lr_m": 1.63
+      },
+      "parameter_interpretation": "Predictive effective parameters; lf and Iz/m are weakly separated by the available data"
+    }
+  },
+  "signal_mapping": {
+    "time": {
+      "csv_column": "t_s",
+      "unit": "s",
+      "role": "timestamp"
+    },
+    "steering": {
+      "csv_column": "roadWheelAngle_rad",
+      "unit": "rad",
+      "role": "road-wheel input"
+    },
+    "yaw_rate": {
+      "csv_column": "yawRate_radps",
+      "unit": "rad/s",
+      "role": "measured output"
+    },
+    "vx": {
+      "csv_column": "Vx_mps",
+      "unit": "m/s",
+      "role": "longitudinal speed input"
+    },
+    "vy": {
+      "csv_column": "Vy_mps",
+      "unit": "m/s",
+      "role": "Model B0 measured output"
+    },
+    "bank": {
+      "csv_column": "bank_rad",
+      "unit": "rad",
+      "role": "Model B0 road-bank input"
+    }
+  },
+  "operating_domain": {
+    "minimum_training_speed_mps": 5.0,
+    "observed_from": "raw unique CSV samples after speed filter",
+    "raw_sample_count": 457375,
+    "speed_mps_p05_p95": [
+      12.535305203912094,
+      31.888303698473987
+    ],
+    "abs_road_wheel_angle_rad_p95": 0.1571303921410839,
+    "abs_yaw_rate_radps_p95": 0.5626941508429719,
+    "abs_lateral_speed_mps_p95": 1.437588900547089,
+    "abs_bank_rad_p95": 0.06271593862922822,
+    "interpretation": "Observed signal distribution, not a guarantee of accuracy at every point in this range"
+  },
+  "validation": {
+    "method": "5-fold grouped cross-validation by entire CSV file",
+    "unique_files": 20,
+    "scored_samples": 114254,
+    "sample_period_s": 0.02,
+    "yaw_rmse_radps": {
+      "A": 0.09229867384823799,
+      "A-Speed": 0.08707845012806491,
+      "B0": 0.08543257715013772
+    },
+    "B0_lateral_speed_rmse_mps": 0.33105433785380634,
+    "interpretation": "Fold-specific fits were scored on held-out files; these RMSEs do not directly validate the full-data coefficient vectors above."
+  },
+  "provenance": {
+    "dataset": "data/VehicleDynamicsDataset/{Oct2023,Nov2023}",
+    "track": "Thunderhill Raceway Park West",
+    "source_baseline": "config/golf_baselines.json",
+    "source_baseline_sha256": "fb9f4bf3718aa0373fcd6d0f753d8afd8a83449864d435b9522ea2159f9eaff2",
+    "source_validation_summary": "output/golf_validation_summary.json",
+    "source_validation_summary_sha256": "3ef6c84e50f6f48bb4143cb08a7f1216597826ba5f2a666d0d7c9b4bf878dba5",
+    "validation_experiment": "GOLF-B0-B1-KFOLD-001",
+    "validation_source_cv_sha256": "c53cbd6898d056cc636e885f5b2f18c6fa0a7d3bcd01f7aa7d158c21be727646",
+    "coefficient_origin": "Full-data refits after cross-validation; not fold coefficients",
+    "duplicate_files_excluded": {
+      "Oct2023/2023-10_2.csv": "Oct2023/2023-10.csv",
+      "Oct2023/2023-10_3.csv": "Oct2023/2023-10_1.csv"
+    }
+  }
+}

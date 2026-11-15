@@ -1,0 +1,80 @@
+{
+  "schema": "p4.validation_summary.v1",
+  "experiment": "GOLF-B0-B1-KFOLD-001",
+  "input_sha256": "c53cbd6898d056cc636e885f5b2f18c6fa0a7d3bcd01f7aa7d158c21be727646",
+  "data": {
+    "unique_files": 20,
+    "folds": 5,
+    "cv_samples_reported": 114254,
+    "sample_period_s": 0.02,
+    "whole_file_holdout": true,
+    "file_name_uniqueness_checked": true,
+    "note": "File names checked once per held-out fold; source-file byte-identity not reaudited here."
+  },
+  "metrics": {
+    "b0_yaw_rmse_radps": 0.08543257715013772,
+    "b0_vy_rmse_mps": 0.33105433785380634,
+    "b1_yaw_rmse_radps": 0.08575926168299333,
+    "b1_vy_rmse_mps": 0.33119813952917315,
+    "a_speed_refined_yaw_rmse_radps": 0.08827565627365318,
+    "b0_vs_refined_a_speed_improvement_percent": 3.2206830779053726,
+    "b1_vs_b0_yaw_degradation_percent": 0.38238871371223393,
+    "b0_wins_vs_b1_folds": 4
+  },
+  "worst_b0_files": [
+    {
+      "fold": 2,
+      "file": "2023-10_6.csv",
+      "b0_yaw_rmse_radps": 0.20505309142273537,
+      "b0_vy_rmse_mps": 0.4218041320666141,
+      "b1_yaw_rmse_radps": 0.2055349846942262
+    },
+    {
+      "fold": 3,
+      "file": "2023-11_5.csv",
+      "b0_yaw_rmse_radps": 0.19720936209992315,
+      "b0_vy_rmse_mps": 0.5242615679105975,
+      "b1_yaw_rmse_radps": 0.19720936209992315
+    },
+    {
+      "fold": 2,
+      "file": "2023-11_1.csv",
+      "b0_yaw_rmse_radps": 0.1347756187831941,
+      "b0_vy_rmse_mps": 0.2621346634772579,
+      "b1_yaw_rmse_radps": 0.1351912167279408
+    },
+    {
+      "fold": 5,
+      "file": "2023-11_2.csv",
+      "b0_yaw_rmse_radps": 0.1217086577494157,
+      "b0_vy_rmse_mps": 0.3114367025476164,
+      "b1_yaw_rmse_radps": 0.1224854679417481
+    },
+    {
+      "fold": 1,
+      "file": "2023-11_3.csv",
+      "b0_yaw_rmse_radps": 0.11470682729083324,
+      "b0_vy_rmse_mps": 0.2990199815418535,
+      "b1_yaw_rmse_radps": 0.11417555267458
+    }
+  ],
+  "full_data_reference_NOT_cv": {
+    "parameters_normalized": {
+      "cf_over_m": 48.37692797945161,
+      "cr_over_m": 51.01006700133779,
+      "iz_over_m_m2": 2.530180722165194,
+      "lf_m": 1,
+      "lr_m": 1.63
+    },
+    "implied_kv_s2_per_m": 0.005357328560126023,
+    "warning": "Full-data fit is not a held-out estimate; the pooled CV metrics do not validate this exact fitted parameter vector."
+  },
+  "assessment": {
+    "reference_model": "B0",
+    "b1_adopted": false,
+    "physical_parameter_identifiability": "limited for lf and Iz/m",
+    "coordinate_convention": "bank sign unverified against original dataset documentation",
+    "validity_range": "Not inferred from this CV JSON; use golf_baselines.json observed domain",
+    "export_ready": "requires baseline source file + controller interface verification"
+  }
+}

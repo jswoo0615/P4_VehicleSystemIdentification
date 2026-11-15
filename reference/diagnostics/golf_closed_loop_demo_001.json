@@ -1,0 +1,82 @@
+{
+  "experiment": "P4-GOLF-CLOSED-LOOP-001 synthetic feasibility demo",
+  "evaluation_kind": "synthetic_plant_only_not_real_golf_control_performance",
+  "reference": "data/VehicleDynamicsDataset/Nov2023/2023-11_1.csv target yaw 85-88 s",
+  "baseline": "config/golf_baselines.json",
+  "plant_config": "config/golf_closed_loop_demo_plants.json",
+  "controller": "equal one-move receding-horizon grid search; 0.2 s prediction; full measured plant states",
+  "forecast_inputs": "recorded future speed and bank, constant candidate steering over horizon",
+  "sample_count": 150,
+  "prediction_horizon_steps": 10,
+  "prediction_horizon_nominal_s": 0.2,
+  "limits_and_weights": {
+    "steering_abs_rad": 0.18,
+    "steering_rate_radps": 0.8,
+    "candidate_count": 9,
+    "steering_weight": 0.005,
+    "move_weight": 0.03
+  },
+  "tracking_threshold_radps": 0.15,
+  "results": [
+    {
+      "plant": "nominal_synthetic",
+      "controller": "A-Speed",
+      "yaw_tracking_rmse_radps": 0.039432807774130746,
+      "yaw_tracking_max_abs_radps": 0.1321570872432851,
+      "steering_rms_rad": 0.04900915975611954,
+      "steering_total_variation_rad": 0.48800379999999577,
+      "tracking_error_over_0p15_fraction": 0.0,
+      "steering_abs_limit_fraction": 0.0
+    },
+    {
+      "plant": "nominal_synthetic",
+      "controller": "B0",
+      "yaw_tracking_rmse_radps": 0.041390803811922096,
+      "yaw_tracking_max_abs_radps": 0.12885170024687156,
+      "steering_rms_rad": 0.05504206946730285,
+      "steering_total_variation_rad": 0.4480026799999991,
+      "tracking_error_over_0p15_fraction": 0.0,
+      "steering_abs_limit_fraction": 0.0
+    },
+    {
+      "plant": "soft_synthetic",
+      "controller": "A-Speed",
+      "yaw_tracking_rmse_radps": 0.15315607383925142,
+      "yaw_tracking_max_abs_radps": 0.4078998202193453,
+      "steering_rms_rad": 0.06638192357587096,
+      "steering_total_variation_rad": 0.5600034600000159,
+      "tracking_error_over_0p15_fraction": 0.2550335570469799,
+      "steering_abs_limit_fraction": 0.0
+    },
+    {
+      "plant": "soft_synthetic",
+      "controller": "B0",
+      "yaw_tracking_rmse_radps": 0.1522484049474587,
+      "yaw_tracking_max_abs_radps": 0.4075459963102798,
+      "steering_rms_rad": 0.08671507895417853,
+      "steering_total_variation_rad": 0.636496026421209,
+      "tracking_error_over_0p15_fraction": 0.2550335570469799,
+      "steering_abs_limit_fraction": 0.026845637583892617
+    },
+    {
+      "plant": "stiff_synthetic",
+      "controller": "A-Speed",
+      "yaw_tracking_rmse_radps": 0.044676504231122134,
+      "yaw_tracking_max_abs_radps": 0.11338928304015183,
+      "steering_rms_rad": 0.03927618077118441,
+      "steering_total_variation_rad": 0.36800208000001644,
+      "tracking_error_over_0p15_fraction": 0.0,
+      "steering_abs_limit_fraction": 0.0
+    },
+    {
+      "plant": "stiff_synthetic",
+      "controller": "B0",
+      "yaw_tracking_rmse_radps": 0.04702439691554706,
+      "yaw_tracking_max_abs_radps": 0.11619782092621914,
+      "steering_rms_rad": 0.039113907601191655,
+      "steering_total_variation_rad": 0.3080018800000034,
+      "tracking_error_over_0p15_fraction": 0.0,
+      "steering_abs_limit_fraction": 0.0
+    }
+  ]
+}

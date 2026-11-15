@@ -1,0 +1,72 @@
+{
+  "purpose": "IONIQ 5 model comparison values; retain original three-file fit and current nine-file fit separately",
+  "units": {
+    "time": "s",
+    "steering": "rad",
+    "yaw_rate": "rad/s",
+    "speed": "m/s",
+    "tie_rod_force": "N"
+  },
+  "model_a_train_files": [
+    "dynamic_driving_asphalt_a_1.csv",
+    "dynamic_driving_asphalt_a_2.csv",
+    "dynamic_driving_asphalt_a_3.csv"
+  ],
+  "model_a_initialization": "Measured first yaw sample of each selected segment; first sample excluded from RMSE",
+  "model_a0": {
+    "equation": "tau*r_dot+r=K*delta+b",
+    "tau_s": 0.0753565929452874,
+    "K_per_s": 2.3611763215955417,
+    "bias_rad_per_s": 0.03440442026497378
+  },
+  "model_a1": {
+    "equation": "tau*r_dot+r=[v_x/(L+kv*v_x^2)]*delta+b",
+    "tau_s": 0.05334838230116768,
+    "wheelbase_m": 3.0,
+    "kv_s2_per_m": 0.005,
+    "bias_rad_per_s": 0.0059650634173782,
+    "kv_search_min": 0.0,
+    "kv_search_max": 0.15,
+    "kv_search_step": 0.0025
+  },
+  "model_a_all9_train_files": [
+    "dynamic_driving_asphalt_a_1.csv",
+    "dynamic_driving_asphalt_a_2.csv",
+    "dynamic_driving_asphalt_a_3.csv",
+    "dynamic_driving_asphalt_a_4.csv",
+    "dynamic_driving_asphalt_a_5.csv",
+    "dynamic_driving_asphalt_a_6.csv",
+    "dynamic_driving_asphalt_a_7.csv",
+    "dynamic_driving_asphalt_a_8.csv",
+    "dynamic_driving_asphalt_a_9.csv"
+  ],
+  "model_a0_all9": {
+    "equation": "tau*r_dot+r=K*delta+b",
+    "tau_s": 0.06716163415705018,
+    "K_per_s": 2.2156789182026704,
+    "bias_rad_per_s": 0.00392006700507416,
+    "training_rmse_rad_per_s": 0.1541286506454218,
+    "file_group_cv_rmse_rad_per_s": 0.166039
+  },
+  "model_a1_all9": {
+    "equation": "tau*r_dot+r=[v_x/(L+kv*v_x^2)]*delta+b",
+    "tau_s": 0.044887069682833,
+    "wheelbase_m": 3.0,
+    "kv_s2_per_m": 0.005,
+    "bias_rad_per_s": 0.00288859811493495,
+    "training_rmse_rad_per_s": 0.03533519806015459,
+    "file_group_cv_rmse_rad_per_s": 0.038669,
+    "evaluation_note": "All nine asphalt A files were used for fitting; there is no untouched test file in this group"
+  },
+  "model_s_load_train_files": [
+    "standstill_concrete_1.csv",
+    "standstill_asphalt_a_1.csv",
+    "standstill_cobble_2.csv"
+  ],
+  "model_s_load_s0": {
+    "equation": "F=offset+angle_coefficient*delta+rate_coefficient*delta_dot",
+    "rate_estimate": "Offline centered difference at guarded steering updates",
+    "left": [432.57758, 3186.4505, 6795.8712],
+    "right": [629.92865, -3375.2034, -6844.1846]
+  }
+}
