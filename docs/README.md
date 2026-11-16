@@ -6,7 +6,6 @@ V1 artifacts are tracked under `reference/`.
 
 ## VW Golf
 
-- [V1 technical audit](golf/P4_V1_TECHNICAL_AUDIT.md)
 - [V1 status and frozen hashes](golf/P4_GOLF_V1_STATUS.md)
 - [Model B identification and file-group validation](golf/GOLF_MODEL_B.md)
 - [B0/B1 comparison](golf/GOLF_B0_B1.md)
