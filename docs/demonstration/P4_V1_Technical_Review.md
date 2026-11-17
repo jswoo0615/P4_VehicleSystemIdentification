@@ -17,14 +17,3 @@
 3. **독립 검증 수준**: 파일 단위 5-fold는 확인됐지만, 같은 원주행 세션의 파일 간 중복·상관성은 추가 확인 필요.
 4. **모델의 유효 영역**: 작은 슬립각 선형 근사, \(v_x\ge5m/s\), observed p05–p95 범위는 보장된 정확도 범위가 아님.
 5. **모델/문서 불일치**: 첨부된 Model S/A/B/C 초안의 수식 오기와 상태 정의를 별도 문서에서 수정 제안.
-
-
-
----
-
-### 참고 파일 / 재현 경로
-
-- 사용자 프로젝트: `config/golf_baselines.json`, `output/golf_prediction_horizon_001.json`, `output/golf_controller_model.json`, `output/golf_export_parity.json`.
-- 이전 작업 기록: `GOLF_MODEL_B.md`, `GOLF_B0_B1.md`, `P4_PREDICTION_HORIZON.md`, `P4_CONTROLLER_INTEGRATION.md`.
-- 그림은 **P4의 직접 작성 모델 도식 2장 + 실제 Golf 데이터·실험 결과 그림 2장**. 외부 이미지 미사용.
-- 보완 사항: [P4_Model_Document_Review.md](P4_Model_Document_Review.md).
