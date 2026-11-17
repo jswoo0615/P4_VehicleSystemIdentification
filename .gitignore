@@ -2,7 +2,7 @@
 /build/
 /build-release/
 /output/
-/data/
+data/
 /golf_replay_75_100.csv
 /p4_golf_log_replay.py
 /maneuver_segments/
@@ -10,3 +10,4 @@
 __pycache__/
 *.pyc
 .DS_Store
+tools/
